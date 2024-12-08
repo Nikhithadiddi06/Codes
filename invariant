@@ -1,0 +1,19 @@
+clc;
+clear all;
+close all;
+x=input('sequence');
+n1=input('shifted value');
+y=x;
+subplot(2,2,1)
+stem(x);
+y1=[zeros(1,n1),x];
+subplot(2,2,2)
+stem(y1);
+y2=[zeros(1,n1),y];
+subplot(2,2,3)
+stem(y2);
+if(y1==y2)
+    disp("time invariant");
+else
+    disp("time variant");
+end
