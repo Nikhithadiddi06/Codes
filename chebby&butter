@@ -1,0 +1,43 @@
+clc;
+clear all;
+close all;
+Rp = input("enter the pass band attenuation: ");
+Rs = input("enter the stop band attenuation: ");
+Wp = input("enter the pass band frequency: ");
+Ws = input("enter the stop band frequency: ");
+[N, Wn] = cheb1ord(Wp/pi,Ws/pi,Rp,Rs);
+[b, a] = cheby1(N,Wn);
+freqz(b,a);
+
+clc;
+clear all;
+close all;
+Rp = input("enter the pass band attenuation: ");
+Rs = input("enter the stop band attenuation: ");
+Wp = input("enter the pass band frequency: ");
+Ws = input("enter the stop band frequency: ");
+[N, Wn] = buttord(Wp/pi,Ws/pi,Rp,Rs);
+[b, a] = butter(N,Wn);
+freqz(b,a);
+
+clc;
+clear all;
+close all;
+Rp = input("enter the pass band attenuation: ");
+Rs = input("enter the stop band attenuation: ");
+Wp = input("enter the pass band frequency: ");
+Ws = input("enter the stop band frequency: ");
+[N, Wn] = buttord(Wp/pi, Ws/pi,Rp,Rs);
+[b, a] = butter(N,Wn,'high');
+freqz(b,a);
+
+clc;
+clear all;
+close all;
+Rp = input("enter the pass band attenuation: ");
+Rs = input("enter the stop band attenuation: ");
+Wp = input("enter the pass band frequency: ");
+Ws = input("enter the stop band frequency: ");
+[N, Wn] = cheb1ord(Wp/pi,Ws/pi,Rp,Rs);
+[b, a] = cheby1(N,Rp,Wn,'high');
+freqz(b,a);
