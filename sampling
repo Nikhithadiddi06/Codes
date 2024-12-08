@@ -1,0 +1,40 @@
+clc;
+close all;
+n=0:0.001:4;
+w1=input("Angular frequency 1: ");
+w2=input("Angular frequency 2: ");
+f1=w1/(2*pi);
+f2=w2/(2*pi);
+y=sin(2*pi*f1*n)+cos(2*pi*f2*n);
+subplot(2,2,1);
+plot(n,y);
+
+grid on;
+fm=max(f1,f2);
+disp(fm);
+fu=25*fm;
+tu=1/fu;
+disp(tu);
+n1=0:tu:3;
+y1=sin(w1*n1)+cos(w2*n1);
+subplot(2,2,2);
+stem(n1,y1);
+
+grid on;
+fi=2*fm;
+ti=1/fi;
+disp(ti);
+n2=0:ti:3;
+y2=sin(w1*n2)+cos(w2*n2);
+subplot(2,2,3);
+stem(n2,y2);
+
+grid on;
+fd=1.5*fm;
+td=1/fd;
+n3=0:td:3;
+y3=sin(w1*n3)+cos(w2*n3);
+subplot(2,2,4);
+stem(n3,y3);
+
+grid on;
