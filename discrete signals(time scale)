@@ -1,0 +1,47 @@
+clc;
+clear all;
+close all;
+y =[1 0 2 5 3 2];
+x =[0 1 2 3 4 5];
+
+subplot(3,2,1);
+stem(x,y,'R');
+title("original");
+xlabel("time");
+ylabel("amplitude");
+grid on;
+
+subplot(3,2,2);
+stem(x/2,y,'B');
+title("expansion");
+xlabel("time");
+ylabel("amplitude");
+grid on;
+
+subplot(3,2,3);
+stem(2*x,y,'G');
+title("contraction");
+xlabel("time");
+ylabel("amplitude");
+grid on;
+
+subplot(3,2,4);
+stem(x+2,y,'R');
+title("advance");
+xlabel("time");
+ylabel("amplitude");
+grid on;
+
+subplot(3,2,5);
+stem(x-2,y,'B');
+title("delay");
+xlabel("time");
+ylabel("amplitude");
+grid on;
+
+subplot(3,2,6);
+stem(-x,y,'G');
+title("reversal");
+xlabel("time");
+ylabel("amplitude");
+grid on;
