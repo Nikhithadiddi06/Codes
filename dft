@@ -1,0 +1,23 @@
+clc;
+x=[1 2 3 4];
+N=length(x);
+Nn=(-2*pi*1i/N);
+y=zeros(1,N);
+for k=0:(N-1)
+    for n=0:(N-1)
+        y(k+1)=y(k+1)+(x(n+1)*exp(Nn*n*k));
+    end 
+end
+disp("dft result");
+disp(y);
+subplot(3,2,3);
+stem(real(y));
+subplot(3,2,4);
+stem(imag(y));
+z=fft(x,N);
+disp("fft result");
+disp(z);
+subplot(3,2,5)
+stem(0:(N-1),abs(y));
+subplot(3,2,6)
+stem(0:(N-1),angle(y));
