@@ -1,0 +1,27 @@
+clc;
+x=input("first");
+h=input("second");
+l=length(x);
+m=length(h);
+N=l+m-1;
+X=[x,zeros(1,N-l)];
+H=[x,zeros(1,N-m)];
+for k=0:(N-1)
+    y1(k+1)=0;
+    y2(k+1)=0;
+    for n=0:(N-1)
+        y1(k+1)=y1(k+1)+(X(n+1)*exp(-1j*2*pi*n*k/N));
+        y2(k+1)=y2(k+1)+(H(n+1)*exp(-1j*2*pi*n*k/N));
+    end
+end
+disp(y1);
+disp(y2);
+y3=y1.*y2;
+disp(y3);
+for k=0:(N-1)
+     y4(k+1)=0;
+     for n=0:(N-1)
+         y4(k+1)=y4(k+1)+((1/N)*(y3(n+1)*exp(-1j*2*pi*n*k/N)));
+     end
+end
+disp(y4);
